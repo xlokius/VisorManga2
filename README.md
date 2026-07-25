@@ -1,9 +1,3 @@
-# README.md - MangaWave
-============================================================
-Copia todo el bloque de abajo (desde "# 🎴 MangaWave") a un archivo
-llamado README.md en la raiz de tu proyecto.
-============================================================
-
 # 🎴 MangaWave
 
 **MangaWave** es un lector de manga web personal, minimalista y con identidad visual propia inspirada en la estetica japonesa (tinta sumi, papel washi, sellos hanko). Permite organizar tu biblioteca local de mangas por carpetas y leerlos en modo cascada (estilo webtoon/scroll continuo), con multiples temas de color y autenticacion segura.
