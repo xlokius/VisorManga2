@@ -1,0 +1,11 @@
+body { margin: 0; }
+.reader-bar { position: sticky; top: 0; z-index: 50; display: flex; align-items: center; justify-content: space-between; gap: 1rem; padding: .8rem 1.5rem; background: var(--bg-secondary); box-shadow: 0 2px 15px rgba(0,0,0,0.25); flex-wrap: wrap; }
+.icon-btn { background: var(--card-bg); border: 1px solid rgba(255,255,255,0.1); color: var(--text); padding: .5rem 1rem; border-radius: 8px; cursor: pointer; transition: transform .2s; }
+.icon-btn:hover { transform: translateX(-3px); }
+.reader-title { font-size: 1.1rem; text-transform: capitalize; margin: 0; flex: 1; text-align: center; }
+.reader-controls { display: flex; align-items: center; gap: 1rem; }
+.chapter-select { padding: .5rem .8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: var(--card-bg); color: var(--text); }
+.width-label { display: flex; align-items: center; gap: .5rem; font-size: .85rem; color: var(--text-muted); }
+.pages-wrap { display: flex; flex-direction: column; align-items: center; background: #000; min-height: 100vh; }
+.pages-wrap img { display: block; width: var(--reader-width, 70%); max-width: 100%; height: auto; margin: 0; padding: 0; }
+.loading-spinner { color: var(--text-muted); padding: 3rem; text-align: center; }

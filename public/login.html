@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Iniciar sesion - MangaWave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/theme.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/login.css">
+</head>
+<body data-theme="sumi">
+<div class="login-bg">
+  <div class="ink-wash ink1"></div>
+  <div class="ink-wash ink2"></div>
+  <div class="grain"></div>
+</div>
+
+<main class="login-wrap">
+  <div class="logo-anim">
+    <svg viewBox="0 0 140 140" class="logo-svg" aria-label="MangaWave">
+      <circle cx="70" cy="70" r="62" class="seal-ring" fill="none" stroke="var(--primary)" stroke-width="3"/>
+      <path class="brush-stroke" d="M35 55 Q50 30 70 45 Q90 60 70 75 Q55 86 60 100" fill="none" stroke="var(--accent)" stroke-width="6" stroke-linecap="round"/>
+      <path class="brush-stroke stroke2" d="M45 90 Q70 78 95 92" fill="none" stroke="var(--primary)" stroke-width="6" stroke-linecap="round"/>
+    </svg>
+    <h1 class="brand">Manga<span>Wave</span></h1>
+    <p class="tagline mono">READ</p>
+  </div>
+
+  <form id="loginForm" class="login-card" autocomplete="off">
+    <span class="hanko-stamp"></span>
+    <h2>Bienvenido de nuevo</h2>
+    <p class="subtitle">Ingresa tus credenciales para continuar</p>
+
+    <div class="field">
+      <input type="text" id="username" name="username" placeholder=" " required autocomplete="off">
+      <label for="username">Usuario</label>
+    </div>
+    <div class="field">
+      <input type="password" id="password" name="password" placeholder=" " required autocomplete="off">
+      <label for="password">Contraseña</label>
+    </div>
+    
+    <button type="submit" class="btn btn-login btn-hover-fill btn-sm">
+      <span class="btn-label">Entrar</span>
+      <span class="btn-fly">
+        <span>Entrar</span>
+        <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </span>
+      <span class="btn-dot"></span>
+    </button>
+
+    <p class="error-msg" id="errorMsg" role="alert"></p>
+  </form>
+</main>
+
+<script src="js/login.js"></script>
+</body>
+</html>

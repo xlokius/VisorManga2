@@ -1,0 +1,305 @@
+/* ============================================================
+   Sistema de botones MangaWave
+   Usa las variables ya definidas en theme.css:
+   --primary, --primary-2, --bg, --card-bg, --text, --text-muted,
+   --accent, --radius, --transition
+   ============================================================ */
+
+.btn {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.9rem;
+  letter-spacing: 0.02em;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  user-select: none;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+/* ---------- Variante 1: relleno deslizante + flecha ---------- */
+.btn-hover-fill {
+  position: relative;
+  width: 9rem;
+  height: 2.6rem;
+  padding: 0 1rem;
+  overflow: hidden;
+  border-radius: 999px;
+  border: 1px solid var(--primary);
+  background: transparent;
+  color: var(--text);
+  transition: color 0.3s var(--transition, ease);
+}
+
+.btn-hover-fill .btn-label {
+  display: inline-block;
+  transform: translateX(0.2rem);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.btn-hover-fill .btn-fly {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  color: #fff;
+  opacity: 0;
+  transform: translateX(3rem);
+  transition: transform 0.3s ease, opacity 0.3s ease;
+  z-index: 2;
+}
+
+.btn-hover-fill .btn-dot {
+  position: absolute;
+  left: 20%;
+  top: 40%;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 999px;
+  background: var(--primary);
+  transition: all 0.35s ease;
+  z-index: 1;
+}
+
+.btn-hover-fill:hover .btn-label {
+  transform: translateX(3rem);
+  opacity: 0;
+}
+
+.btn-hover-fill:hover .btn-fly {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.btn-hover-fill:hover .btn-dot {
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 999px;
+  transform: scale(1.8);
+  background: var(--primary);
+}
+
+.btn-hover-fill svg {
+  width: 1rem;
+  height: 1rem;
+  stroke: currentColor;
+}
+
+/* variante compacta, usada en navbar (ej. boton Salir) */
+.btn-hover-fill.btn-sm {
+  width: auto;
+  min-width: 6rem;
+  height: 2.2rem;
+  font-size: 0.8rem;
+}
+
+/* ---------- Variante 2: boton con resplandor lateral ---------- */
+.btn-glow {
+  position: relative;
+  height: 2.5rem;
+  padding: 0 1.25rem;
+  border-radius: var(--radius, 6px);
+  border: 1px solid var(--card-bg);
+  border-right: 0;
+  background: linear-gradient(to top, var(--bg), var(--card-bg));
+  color: var(--text);
+  overflow: hidden;
+  transition: color 0.2s ease;
+  --glow: var(--accent);
+}
+
+.btn-glow::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(to right, transparent 40%, color-mix(in srgb, var(--glow) 12%, transparent) 70%, color-mix(in srgb, var(--glow) 25%, transparent));
+  z-index: 1;
+}
+
+.btn-glow::before {
+  content: '';
+  position: absolute;
+  right: 0;
+  top: 20%;
+  width: 5px;
+  height: 60%;
+  border-radius: 4px 0 0 4px;
+  background: var(--glow);
+  box-shadow: -2px 0 10px var(--glow);
+  transition: transform 0.2s ease;
+  z-index: 2;
+}
+
+.btn-glow:hover {
+  color: var(--text-muted);
+}
+
+.btn-glow:hover::before {
+  transform: translateX(100%);
+}
+
+.btn-glow span {
+  position: relative;
+  z-index: 3;
+}
+
+/* colores de acento opcionales por data-attribute */
+.btn-glow[data-glow='primary'] { --glow: var(--primary); }
+.btn-glow[data-glow='accent']  { --glow: var(--accent); }
+
+.theme-select-wrap {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+.theme-select-wrap::before {
+  content: '';
+  position: absolute;
+  left: 0.7rem;
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 999px;
+  background: var(--primary);
+  box-shadow: 0 0 6px var(--primary);
+  pointer-events: none;
+  z-index: 2;
+  transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.theme-select-wrap::after {
+  content: '';
+  position: absolute;
+  right: 0.75rem;
+  width: 0.5rem;
+  height: 0.5rem;
+  border-right: 2px solid var(--text-muted);
+  border-bottom: 2px solid var(--text-muted);
+  transform: rotate(45deg) translateY(-2px);
+  pointer-events: none;
+  transition: transform 0.25s ease, border-color 0.2s ease;
+}
+
+.theme-select-wrap:hover::after {
+  border-color: var(--text);
+}
+
+.theme-select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.82rem;
+  letter-spacing: 0.02em;
+  color: var(--text);
+  background: var(--card-bg);
+  border: 1px solid color-mix(in srgb, var(--text) 12%, transparent);
+  border-radius: 999px;
+  padding: 0.5rem 2.1rem 0.5rem 1.6rem;
+  cursor: pointer;
+  outline: none;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease, background 0.25s ease;
+}
+
+.theme-select:hover {
+  border-color: color-mix(in srgb, var(--primary) 50%, transparent);
+}
+
+.theme-select:focus-visible {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 20%, transparent);
+}
+
+.theme-select option {
+  background: var(--card-bg);
+  color: var(--text);
+}
+
+/* ============================================================
+   Control de ancho (reader) - slider custom estilo "tira de
+   pelicula" con pip central y valor flotante
+   ============================================================ */
+.width-label {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.6rem;
+  font-family: var(--font-body);
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.02em;
+}
+
+.width-label::before {
+  content: '\21c4';
+  font-size: 0.9rem;
+  color: var(--accent);
+}
+
+input[type='range']#widthRange {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 7.5rem;
+  height: 4px;
+  border-radius: 999px;
+  background: linear-gradient(to right, var(--primary) 0%, var(--primary) var(--fill, 50%), color-mix(in srgb, var(--text) 15%, transparent) var(--fill, 50%), color-mix(in srgb, var(--text) 15%, transparent) 100%);
+  outline: none;
+  cursor: pointer;
+  transition: box-shadow 0.2s ease;
+}
+
+input[type='range']#widthRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+  cursor: pointer;
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+input[type='range']#widthRange::-webkit-slider-thumb:hover {
+  transform: scale(1.15);
+  box-shadow: 0 0 0 5px color-mix(in srgb, var(--primary) 22%, transparent);
+}
+
+input[type='range']#widthRange::-moz-range-thumb {
+  width: 1rem;
+  height: 1rem;
+  border-radius: 999px;
+  background: var(--bg);
+  border: 2px solid var(--primary);
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--primary) 18%, transparent);
+  cursor: pointer;
+  transition: transform 0.15s ease;
+}
+
+input[type='range']#widthRange::-moz-range-thumb:hover {
+  transform: scale(1.15);
+}
+
+input[type='range']#widthRange::-moz-range-track {
+  height: 4px;
+  border-radius: 999px;
+  background: transparent;
+}
+
+.width-value {
+  min-width: 2.4rem;
+  text-align: right;
+  font-family: var(--font-mono);
+  font-size: 0.78rem;
+  color: var(--accent);
+}

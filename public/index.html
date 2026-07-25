@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>MangaWave</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@500;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/theme.css">
+<link rel="stylesheet" href="/css/buttons.css">
+<link rel="stylesheet" href="/css/main.css">
+</head>
+<body data-theme="sumi">
+  <header class="navbar">
+    <div class="logo-mini">
+      <svg viewBox="0 0 60 60" class="logo-mini-svg" aria-hidden="true">
+        <circle cx="30" cy="30" r="26" fill="none" stroke="var(--primary)" stroke-width="2.5"/>
+        <path d="M16 24 Q22 13 30 19 Q39 26 30 33 Q23 38 25 44" fill="none" stroke="var(--accent)" stroke-width="3" stroke-linecap="round"/>
+      </svg>
+      <span class="brand">Manga<span>Wave</span></span>
+    </div>
+    <div class="navbar-actions">
+      <div class="theme-select-wrap">
+        <select id="themeSelect" class="theme-select" aria-label="Elegir tema de color">
+          <option value="sumi">Sumi Ink</option>
+          <option value="washi">Washi Paper</option>
+          <option value="neonkanji">Neon Kanji</option>
+          <option value="sakura">Sakura Dusk</option>
+        </select>
+      </div>
+      <input type="text" id="searchInput" placeholder="Buscar manga..." class="search-input" aria-label="Buscar manga">
+      <button id="logoutBtn" class="btn btn-hover-fill btn-sm">
+        <span class="btn-label">Salir</span>
+        <span class="btn-fly">
+          <span>Salir</span>
+          <svg viewBox="0 0 24 24" fill="none"><path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </span>
+        <span class="btn-dot"></span>
+      </button>
+    </div>
+  </header>
+
+  <main class="gallery-wrap">
+    <div class="gallery-heading">
+      <span class="eyebrow mono">本棚 / TU ESTANTE</span>
+      <h1 class="gallery-title">Biblioteca</h1>
+    </div>
+    <div id="grid" class="grid"></div>
+    <p id="emptyMsg" class="empty-msg" style="display:none;">No se encontraron mangas en la carpeta /mangas. Agrega una subcarpeta por cada titulo.</p>
+  </main>
+
+  <script src="/js/main.js"></script>
+</body>
+</html>
