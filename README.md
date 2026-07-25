@@ -65,8 +65,8 @@ mangawave/
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/tu-usuario/mangawave.git
-   cd mangawave
+   git clone https://github.com/xlokius/VisorManga2.git
+   cd VisorManga2
    ```
 
 2. Instala las dependencias:
